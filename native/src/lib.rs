@@ -10,9 +10,8 @@ fn hello(mut cx: FunctionContext) -> JsResult<JsString> {
 }
 
 register_module!(mut cx, {
-    cx.export_function("nativeHello", hello).unwrap();
-    cx.export_function("nativeThreadCount", thread_count)
-        .unwrap();
+    cx.export_function("nativeHello", hello)?;
+    cx.export_function("nativeThreadCount", thread_count)?;
 
     Ok(())
 });

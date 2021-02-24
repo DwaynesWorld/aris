@@ -13,9 +13,10 @@ Cargo.lock
 **/*.rs.bk
 
 ## Neon
+native/artifacts.json
 native/target
 native/index.node
-native/artifacts.json
+src/native.node
 **/*~
 **/node_modules
 **/.DS_Store
@@ -47,4 +48,3 @@ yarn-debug.log*
 yarn-error.log*
 
 
-src/native.node
