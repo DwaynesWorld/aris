@@ -1,0 +1,97 @@
+{
+  "name": "aris",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Explore files anywhere.",
+  "author": {
+    "name": "Kyle Thompson"
+  },
+  "main": "build/electron/main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "concurrently \"yarn native:build && yarn react:start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+    "build": "yarn native:build && yarn react:build && yarn electron:build",
+    "lint": "eslint --max-warnings 0 --ignore-path .eslintignore \"src/**\" --cache --cache-location=node_modules/.cache/.eslintcache",
+    "electron:build": "tsc -p electron && electron-builder --mac --arm64",
+    "native:build": "neon build --release && cp-cli native/index.node src/native.node",
+    "react:build": "react-scripts build",
+    "react:start": "BROWSER=none react-scripts start",
+    "react:test": "react-scripts test",
+    "react:eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "electron-devtools-installer": "^3.1.1",
+    "electron-is": "^3.0.0",
+    "electron-reload": "^1.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^7.29.6",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "4.x",
+    "@typescript-eslint/parser": "4.x",
+    "babel-eslint": "10.x",
+    "concurrently": "^6.0.0",
+    "cross-env": "^7.0.3",
+    "cp-cli": "^2.0.0",
+    "electron": "^11.3.0",
+    "electron-builder": "22.10.5",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-config-react-app": "6.x",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-i18next": "5.0.0",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "4.x",
+    "neon-cli": "^0.7.1",
+    "typescript": "^4.1.2",
+    "wait-on": "^5.2.1"
+  },
+  "build": {
+    "productName": "Aris",
+    "extends": null,
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/setup-tests.ts"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

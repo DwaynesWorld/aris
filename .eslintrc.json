@@ -1,0 +1,52 @@
+{
+  "extends": [
+    "react-app",
+    "airbnb",
+    "airbnb-typescript",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "plugin:i18next/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-empty-pattern": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-inferrable-types": "warn",
+    "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/prefer-regexp-exec": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.tsx",
+          "**/*.test.ts",
+          "src/setup-tests.ts"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "i18next/no-literal-string": [
+      "off",
+      {
+        "ignore": ["error"],
+        "ignoreAttribute": ["name", "autoComplete"],
+        "ignoreProperty": ["name", "columnName"]
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}

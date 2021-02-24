@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "noEmitOnError": true,
+    "outDir": "../build",
+    "rootDir": "../",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"]
+  }
+}

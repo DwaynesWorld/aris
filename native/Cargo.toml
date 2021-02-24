@@ -1,0 +1,19 @@
+[package]
+name = "aris"
+version = "0.1.0"
+authors = ["kt"]
+license = "MIT"
+build = "build.rs"
+edition = "2018"
+exclude = ["artifacts.json", "index.node"]
+
+[lib]
+name = "aris"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+neon-build = "0.7.1"
+
+[dependencies]
+neon = "0.7.1"
+num_cpus = "1.4.0"
